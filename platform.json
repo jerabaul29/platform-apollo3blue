@@ -6,11 +6,11 @@
   "homepage": "",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": ">=5.0.4"
+    "platformio": ">=5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nigelb/platform-apollo3blue.git"
+    "url": "https://github.com/jerabaul29/platform-apollo3blue.git"
   },
   "version": "0.0.2",
   "packageRepositories": [
