@@ -14,8 +14,6 @@
   },
   "version": "0.0.2",
   "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json",
     {
       "framework-mbedos-apollo3": [
         {
@@ -32,14 +30,5 @@
     }
   },
   "packages": {
-    "toolchain-gccarmnoneeabi": {
-      "type": "toolchain",
-      "version": ">=1.7"
-    },
-    "framework-mbedos-apollo3": {
-      "type": "framework",
-      "optional": true,
-      "version": "~1.0.20"
-    }
   }
 }
