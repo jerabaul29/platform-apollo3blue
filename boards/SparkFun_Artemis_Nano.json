@@ -9,7 +9,7 @@
 
   },
   "frameworks": [
-    "arduino"
+    "mbed-os"
   ],
   "name": "SparkFun RedBoard Artemis Nano",
   "upload": {

@@ -21,7 +21,7 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoapollo3")
+FRAMEWORK_DIR = platform.get_package_dir("framework-mbedos-apollo3")
 assert isdir(FRAMEWORK_DIR)
 
 if upload_protocol.startswith("svl"):
@@ -34,7 +34,7 @@ if upload_protocol.startswith("svl"):
 
 upload_speed = env.subst("$UPLOAD_SPEED")
 if len(upload_speed) == 0:
-    upload_speed = "921600"
+    upload_speed = "460800"
 
 upload_port = env.subst("$UPLOAD_PORT")
 if len(upload_port) == 0:

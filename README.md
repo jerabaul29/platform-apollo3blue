@@ -1,37 +1,43 @@
 # platform-apollo3blue
+
 This is an experimantal platform to allow the use of [SparkFun's Arduino framework](https://github.com/sparkfun/Arduino_Apollo3) in PlatformIO.
 
 # How To Use This
+
 As this is experimental, it requires a manual install.
 
 ## Install
-Locate your .platformio directory which it typically in your home directory:
+
+Locate your .platformio directory which it typically in your home directory; for example, on Ubuntu with default installation:
 
     $> cd .platformio
 
-Clone [SparkFun's Arduino framework](https://github.com/sparkfun/Arduino_Apollo3):
+Clone [SparkFun's Arduino framework](https://github.com/sparkfun/Arduino_Apollo3) into a custom name folder:
 
     ~/.platformio> cd packages
-    ~/.platformio>/packages> git clone https://github.com/sparkfun/Arduino_Apollo3.git framework-arduinoapollo3
+    ~/.platformio>/packages> git clone https://github.com/sparkfun/Arduino_Apollo3.git framework-mbedos-apollo3
 
-Create a `package.json` file in the directory you just cloned `.platformio/packages/framework-arduinoapollo3/` with the following contents:
+Create a `package.json` file in the directory you just cloned `.platformio/packages/framework-mbedos-apollo3/` with the following contents:
 
 ```json
 {
-    "name": "framework-arduinoapollo3",
-    "description": "Arduino Wiring-based Framework (Apollo3 Core)",
-    "version": "1.0.22",
+    "name": "framework-mbedos-apollo3",
+    "description": "Mbed-OS-based Framework (Apollo3 Core)",
+    "version": "2.0.3",
     "url": "https://github.com/sparkfun/Arduino_Apollo3"
 }
 ```
 
-Checkout [platform-apollo3blue](https://github.com/nigelb/platform-apollo3blue):
+Clone [platform-apollo3blue](https://github.com/jerabaul29/platform-apollo3blue):
 
     ~> cd ~/.platformio
     ~/.platformio> cd platforms
-    ~/.platformio/platforms> git clone https://github.com/nigelb/platform-apollo3blue.git apollo3blue
+    ~/.platformio/platforms> git clone https://github.com/jerabaul29/platform-apollo3blue apollo3blue
     
+TODO: simplify / refactor from this point and lower down
+
 ## Verify the Install
+
 You should have a number of Artemis boards show up in your board list:
 
     $> platformio boards
@@ -79,7 +85,7 @@ Or query the platform directly:
     Original version: 7.2.1
     Description: gcc-arm-embedded
     
-    Package framework-arduinoapollo3
+    Package framework-mbedos-apollo3
     --------------------------------
     Type: framework
     Requirements: ~1.0.20
@@ -149,7 +155,7 @@ Verbose mode can be enabled via `-v, --verbose` option
 CONFIGURATION: https://docs.platformio.org/page/boards/apollo3blue/SparkFun_Artemis_Nano.html
 PLATFORM: Apollo 3 Blue 0.0.1 > SparkFun RedBoard Artemis Nano
 HARDWARE: AMA3B1KK 48MHz, 348KB RAM, 937.50KB Flash
-PACKAGES: toolchain-gccarmnoneeabi 1.70201.0 (7.2.1), framework-arduinoapollo3 1.0.20
+PACKAGES: toolchain-gccarmnoneeabi 1.70201.0 (7.2.1), framework-mbedos-apollo3 1.0.20
 LDF: Library Dependency Finder -> http://bit.ly/configure-pio-ldf
 LDF Modes: Finder ~ chain, Compatibility ~ soft
 Found 0 compatible libraries
@@ -273,7 +279,7 @@ Processing SparkFun_Artemis_Nano (platform: apollo3blue; board: SparkFun_Artemis
 CONFIGURATION: https://docs.platformio.org/page/boards/apollo3blue/SparkFun_Artemis_Nano.html
 PLATFORM: Apollo 3 Blue 0.0.1 > SparkFun RedBoard Artemis Nano
 HARDWARE: AMA3B1KK 48MHz, 348KB RAM, 937.50KB Flash
-PACKAGES: toolchain-gccarmnoneeabi 1.70201.0 (7.2.1), framework-arduinoapollo3 1.0.20
+PACKAGES: toolchain-gccarmnoneeabi 1.70201.0 (7.2.1), framework-mbedos-apollo3 1.0.20
 LDF: Library Dependency Finder -> http://bit.ly/configure-pio-ldf
 LDF Modes: Finder ~ chain, Compatibility ~ soft
 Found 0 compatible libraries
@@ -287,7 +293,7 @@ text       data     bss     dec     hex filename
   51572     136  112956  164664   28338 .pio/build/SparkFun_Artemis_Nano/program
 AVAILABLE: svl
 CURRENT: upload_protocol = svl
-/home/user/.platformio/packages/framework-arduinoapollo3/tools/artemis/linux/artemis_svl /dev/ttyUSB0 -b 115200 -f .pio/build/SparkFun_Artemis_Nano/firmware.bin -v
+/home/user/.platformio/packages/framework-mbedos-apollo3/tools/artemis/linux/artemis_svl /dev/ttyUSB0 -b 115200 -f .pio/build/SparkFun_Artemis_Nano/firmware.bin -v
 
 
 Artemis SVL Bootloader

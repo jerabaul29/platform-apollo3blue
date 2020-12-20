@@ -6,29 +6,29 @@
   "homepage": "",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": "<5"
+    "platformio": ">=5.0.4"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nigelb/platform-apollo3blue.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json",
     {
-      "framework-arduinoapollo3": [
+      "framework-mbedos-apollo3": [
         {
-          "url": "https://github.com/sparkfun/Arduino_Apollo3/archive/v1.0.22_ble-beta.tar.gz",
-          "version": "1.0.22"
+          "url": "https://github.com/sparkfun/Arduino_Apollo3/releases/download/v2.0.3/Arduino_Apollo3.tar.gz",
+          "version": "2.0.3"
         }
       ]
     }
   ],
   "frameworks": {
-    "arduino": {
-      "package": "framework-arduinoapollo3",
-      "script": "builder/frameworks/arduino.py"
+    "mbed-os": {
+      "package": "framework-mbedos-apollo3",
+      "script": "builder/frameworks/mbed-os.py"
     }
   },
   "packages": {
@@ -36,7 +36,7 @@
       "type": "toolchain",
       "version": ">=1.7"
     },
-    "framework-arduinoapollo3": {
+    "framework-mbedos-apollo3": {
       "type": "framework",
       "optional": true,
       "version": "~1.0.20"

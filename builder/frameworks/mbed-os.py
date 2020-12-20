@@ -22,10 +22,10 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 build_mcu = env.get("BOARD_MCU", board.get("build.mcu", ""))
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoapollo3")
+FRAMEWORK_DIR = platform.get_package_dir("framework-mbedos-apollo3")
 assert isdir(FRAMEWORK_DIR)
 
-CORE_DIR = join(FRAMEWORK_DIR, "cores", "arduino")
+CORE_DIR = join(FRAMEWORK_DIR, "cores", "mbed-os")
 SDK_DIR = join(CORE_DIR, "am_sdk_ap3")
 CMSIS_DIR = join(SDK_DIR, "CMSIS")
 THIRD_PARTY_DIR = join(SDK_DIR, "third_party")
