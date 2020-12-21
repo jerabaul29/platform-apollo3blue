@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from os.path import join, isdir
+from pathlib import Path
 from SCons.Script import AlwaysBuild, Builder, Default, DefaultEnvironment
 import platform as sys_pf
 
@@ -21,35 +22,34 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
+print("upload protocol: {}".format(upload_protocol))
+
 FRAMEWORK_DIR = platform.get_package_dir("framework-mbedos-apollo3")
+print("framework dir: {}".format(FRAMEWORK_DIR))
 assert isdir(FRAMEWORK_DIR)
 
 if upload_protocol.startswith("svl"):
-    upload_program = join(FRAMEWORK_DIR, "tools", "artemis", sys_pf.system().lower(), "artemis_svl")
-    if sys_pf.system() == "Windows":
-        upload_program += ".exe"
-
-    elif sys_pf.system().lower() in ["darwin"]:
-        upload_program = join(FRAMEWORK_DIR, "tools", "artemis", "macosx", "artemis_svl")
+    # TODO: fixme in a robust way
+    # the path is user dependent; fix
+    # assumes that the Artemis IDE package was installed in Arduino IDE; fix or give instructions
+    upload_program = "/home/jrlab/.arduino15/packages/SparkFun/hardware/apollo3/2.0.3/tools/uploaders/svl/dist/linux/svl"
+    print("upload program: {}".format(upload_program))
+    assert(Path(upload_program).exists())
+else:
+    raise ValueError("Only SVL works reliably for now...")
 
 upload_speed = env.subst("$UPLOAD_SPEED")
+
 if len(upload_speed) == 0:
     upload_speed = "460800"
+
+print("upload speed: {}".format(upload_speed))
 
 upload_port = env.subst("$UPLOAD_PORT")
 if len(upload_port) == 0:
     env.AutodetectUploadPort()
-    
-    # env.Replace(
-    #     UPLOADER=upload_program,
-    #     UPLOADERFLAGS=[
-    #         "$UPLOAD_PORT",
-    #         "-b", "921600",
-    #         "-f", "$SOURCES",
-    #         "-v",
-    #     ],
-    #     UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
-    # )
+
+print("upload speed: {}".format(upload_port))
 
 # A full list with the available variables
 # http://www.scons.org/doc/production/HTML/scons-user.html#app-variables
